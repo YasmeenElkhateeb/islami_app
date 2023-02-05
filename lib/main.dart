@@ -8,6 +8,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 // import 'package:islami_app/settings/language_bottom_sheet.dart';
 import 'package:provider/provider.dart';
 
+import 'aladhan/aladhan.dart';
+
 void main() {
   runApp(ChangeNotifierProvider(
     child: MyApp(),
@@ -25,6 +27,7 @@ class MyApp extends StatelessWidget {
         HomeScreen.routeName: (context) => HomeScreen(),
         SouraNameDetails.routeName: (context) => SouraNameDetails(),
         HadethDetails.routeName: (context) => HadethDetails(),
+        Aladhan.routeName : (context) => Aladhan()
       },
       initialRoute: HomeScreen.routeName,
       theme: MyTheme.lightTheme,

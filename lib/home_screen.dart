@@ -9,6 +9,8 @@ import 'package:islami_app/settings/settings_tap.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
+import 'aladhan/aladhan.dart';
+
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'home_screen';
 
@@ -23,6 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
     HadethTap(),
     SebhaTap(),
     RadioTap(),
+    Aladhan(),
     SettingsTap()
   ];
 
@@ -54,7 +57,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           body: taps[iconSelectIndex],
           bottomNavigationBar: Theme(
-            data: Theme.of(context).copyWith(canvasColor: MyTheme.goldColor),
+            data: provider.appMode == ThemeMode.light ?
+            Theme.of(context).copyWith(canvasColor: MyTheme.goldColor):
+            Theme.of(context).copyWith(canvasColor: MyTheme.blackColor),
             child: BottomNavigationBar(
               currentIndex: iconSelectIndex,
               onTap: (index) {
@@ -74,6 +79,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 BottomNavigationBarItem(
                   icon: Image.asset('assets/images/icon_radio.png'),
                   label: AppLocalizations.of(context)!.radio,
+                ),
+                BottomNavigationBarItem(
+                  icon: Image.asset('assets/images/adhan.png'),
+                  label: AppLocalizations.of(context)!.aladhan,
                 ),
                 BottomNavigationBarItem(
                   icon: Image.asset('assets/images/icon_settings.png'),
